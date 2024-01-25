@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    "target": "es5",
+    "module": "node16",
+    "target": "es2021",
     "lib": [
       "dom",
       "dom.iterable",
@@ -11,17 +12,18 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions" : true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
   },
-  "include": [
-    "src"
-  ]
+  "ts-node": {
+    "esm": true
+  },
+  "include": ["/**/*.ts"],
 }
