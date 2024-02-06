@@ -5,13 +5,14 @@ dotenv.config();
 
 const dailyStockRouter: Router = express.Router();
 
+
 dailyStockRouter.get("/api/daily/stock/:stockTicker", async (req: Request, res: Response): Promise<void> => {
     const {stockTicker} = req.params;
     try {
         const response = await fetch(
             `${process.env.ALPHA_VANTAGE_URL}TIME_SERIES_DAILY&symbol=${stockTicker}&apikey=${process.env.ALPHA_VANTAGE_API_KEY}`,
         );
-        res.send(await response.json());
+        res.send(response.json());
         return;
     } catch (e: any) {
         console.error(e);
