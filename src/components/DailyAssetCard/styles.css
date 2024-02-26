@@ -1,0 +1,26 @@
+.daily-asset-card-container {
+    padding: 1em;
+    border-radius: 10px;
+    background-color: #fff;
+    width: 350px;
+    height: 300px;
+}
+p {
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+.company-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.graph-container {
+    border: 1px solid black;
+    height: 375px;
+    width: 350px;
+}
