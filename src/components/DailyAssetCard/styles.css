@@ -1,9 +1,12 @@
 .daily-asset-card-container {
     padding: 1em;
+    margin: 1em;
     border-radius: 10px;
     background-color: #fff;
-    width: 350px;
+    width: 300px;
     height: 300px;
+    flex-grow: 1;
+    flex-basis: auto;
 }
 p {
     margin-bottom: 0.5em;
@@ -20,7 +23,6 @@ p {
 }
 
 .graph-container {
-    border: 1px solid black;
-    height: 375px;
-    width: 350px;
+    width: 250px;
+    height: 250px;
 }
