@@ -3,7 +3,7 @@ import './styles.css';
 import DailyAssetCard from "../DailyAssetCard/DailyAssetCard";
 
 const tickers = ['aapl', 'ibm', 'nvda']
-const Dashboard= ()=> {
+const Dashboard= () => {
     return(<div className={"dashboard"}>
         <h1>Dashboard</h1>
         <div className={"cards-container"}>

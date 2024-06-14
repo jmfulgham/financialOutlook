@@ -8,8 +8,6 @@ interface DailyAssetCardProps {
     ticker: string
 }
 const DailyAssetCard = ({ticker}: DailyAssetCardProps) => {
-    const date = new Date().toISOString().slice(0, 10);
-
 
     const [stockData, setStockData] = useState<DailyCloseDetails | undefined>()
     const [error, setError] = useState(false)
@@ -24,7 +22,11 @@ const DailyAssetCard = ({ticker}: DailyAssetCardProps) => {
         }
 
         fetchData()
-    })
+    }, [ticker])
+
+    if (error){
+        return <div>Error retrieving stock details, please try again</div>
+    }
 
     return (
         <div className={"daily-asset-card-container"}>
