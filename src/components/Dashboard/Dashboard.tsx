@@ -1,13 +1,13 @@
 import React from "react";
 import './styles.css';
-import DailyAssetCard from "../DailyAssetCard/DailyAssetCard";
+import DailyAssetSnack from "../DailyAssetSnack/DailyAssetSnack";
 
-const tickers = ['aapl', 'ibm', 'nvda']
+const tickers = ['aapl', 'ibm', 'nvda', 'msft']
 const Dashboard= () => {
     return(<div className={"dashboard"}>
         <h1>Dashboard</h1>
         <div className={"cards-container"}>
-            {tickers.map((ticker) =>  <DailyAssetCard ticker={ticker}/>)}
+            {tickers.map((ticker, i) =>  <DailyAssetSnack ticker={ticker} key={i}/>)}
         </div>
 
     </div>)

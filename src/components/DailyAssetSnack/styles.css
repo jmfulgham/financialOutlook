@@ -1,25 +1,31 @@
-.daily-asset-card-container {
+.daily-asset-snack-container {
     padding: 1em;
     margin: 1em;
     border-radius: 10px;
     background-color: #fff;
-    width: 300px;
-    height: 300px;
+    max-width: 210px;
     flex-grow: 1;
+    flex-wrap: wrap;
     flex-basis: auto;
 }
 p {
     margin-bottom: 0.5em;
     margin-top: 0.5em;
 }
-.company-name {
-    font-size: 0.9rem;
+.company-ticker {
+    font-size: 1.2rem;
     font-weight: bold;
 }
-
-.price {
+.close-date{
+    font-size: 1rem;
+    font-weight: bold;
+}
+.price-details {
     font-size: 1.2rem;
     font-weight: bolder;
+    display: flex;
+    margin-top: 0;
+    align-items: center;
 }
 
 .graph-container {
