@@ -4,6 +4,7 @@
   "private": true,
   "main": "src/index.tsx",
   "dependencies": {
+    "@react-icons/all-files": "^4.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -11,17 +12,25 @@
     "@types/node": "^16.18.71",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
+    "chart.js": "^4.4.3",
+    "dotenv": "^16.4.4",
+    "fs": "^0.0.1-security",
+    "path-browserify": "^1.0.1",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^3.0.1",
+    "react-icons": "^5.2.1",
+    "react-scripts": "^5.0.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "src/node_modules/.bin/react-scripts start",
-    "build": "src/node_modules/.bin/react-scripts build",
-    "test": "src/node_modules/.bin/react-scripts test",
-    "eject": "src/node_modules/.bin/react-scripts eject"
+    "setup": "(cd server && npm i) & npm i",
+    "dev": "(cd server && npm run dev) & npm start",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
