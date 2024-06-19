@@ -9,7 +9,7 @@ interface DailyAssetCardProps {
 }
 
 const DailyAssetSnack = ({ticker}: DailyAssetCardProps) => {
-//TODO export the graph
+
     const [stockData, setStockData] = useState<DailyCloseDetails | undefined>()
     const [error, setError] = useState(false)
 

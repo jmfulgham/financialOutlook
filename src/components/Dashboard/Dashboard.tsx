@@ -9,7 +9,6 @@ const Dashboard= () => {
         <div className={"cards-container"}>
             {tickers.map((ticker, i) =>  <DailyAssetSnack ticker={ticker} key={i}/>)}
         </div>
-
     </div>)
 }
 
