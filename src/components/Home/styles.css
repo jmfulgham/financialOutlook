@@ -1,0 +1,21 @@
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2.5em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+.home-container {
+
+}
+
+.example-container {
+    display: flex;
+    flex-direction: row;
+}

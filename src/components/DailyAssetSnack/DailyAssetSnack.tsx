@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, memo} from "react";
 import "./styles.css"
 import {DailyCloseDetails, useGetDailyStockCloseInfo} from "../../utils/dailies";
 import {FaLongArrowAltUp} from "@react-icons/all-files/fa/FaLongArrowAltUp";
@@ -8,7 +8,7 @@ interface DailyAssetCardProps {
     ticker: string;
 }
 
-const DailyAssetSnack = ({ticker}: DailyAssetCardProps) => {
+const DailyAssetSnack = memo(({ticker}: DailyAssetCardProps) => {
 
     const [stockData, setStockData] = useState<DailyCloseDetails | undefined>()
     const [error, setError] = useState(false)
@@ -34,6 +34,6 @@ const DailyAssetSnack = ({ticker}: DailyAssetCardProps) => {
             {stockData && <div className={"price-details"}><p>Close Price: ${stockData.close}</p>
                 {stockData.open < stockData.close ? <FaLongArrowAltDown style={{color: 'red'}}/> : <FaLongArrowAltUp style={{color: 'green'}}/>}</div>}
             </div>)
-                }
+                })
 
 export default DailyAssetSnack
