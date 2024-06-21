@@ -7,13 +7,11 @@ import Home from "./components/Home/Home";
 
 function App() {
 //   todo implement tickers and memoization
-
   // const [tickers, setTickers] = useState<string[]>(['aapl', 'ibm', 'nvda', 'msft'])
 const tickers: string[] = []
   return (
       <>
-      <Home/>
-        {tickers.length > 0 && <Dashboard tickers={tickers}/>}
+        {tickers.length === 0 ? <Home/> : <Dashboard tickers={tickers}/> }
       </>
   );
 }

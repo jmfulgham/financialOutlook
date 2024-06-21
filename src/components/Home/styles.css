@@ -15,6 +15,31 @@ h3 {
 
 }
 
+.example-balances-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.balance {
+    width: 33%;
+    height: 300px;
+    border-radius: 8px;
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+}
+
+.balance-title {
+    font-size: 1.4em;
+
+}
+
+.balance-text {
+    font-weight: bold;
+    font-size: 2em;
+}
+
 .example-container {
     display: flex;
     flex-direction: row;
