@@ -1,12 +1,18 @@
 import './styles.css';
 import DailyAssetSnack from "../DailyAssetSnack/DailyAssetSnack";
-
+import { HiMiniPlusSmall } from "react-icons/hi2";
 const Home = () => {
+    //TODO implement
+    const handleClick = ()=> {
+        console.log("CLICK!")
+    }
+
     const testTickers: string[] = ['spy', 't', 'msft', 'v']
+
     return(<div className={'home-container'}>
     <h1>Welcome to Financial Outlook</h1>
         <h2>Take a quick snapshot of your favorite financial markets</h2>
-        <h3>Add your stock ticker to grab a quick look! </h3>
+        <div id={'add-stock'}><h3>Add your stock ticker to grab a quick look! <HiMiniPlusSmall id={'add-icon'} onClick={handleClick}/> </h3></div>
         <div className={'example-balances-container'}>
             <div className={'balance'} id={"cash-balance"}><p className={'balance-title'}>Cash Balance:</p> <p
                 className={'balance-text'}>$5,481.22</p></div>

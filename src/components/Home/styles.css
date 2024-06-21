@@ -11,8 +11,14 @@ h3 {
     font-size: 2em;
 }
 
-.home-container {
+#add-icon {
+    vertical-align: middle;
+}
 
+#add-icon:hover {
+    border-radius: 50px;
+    color: #fff;
+    background-color: rgba(175, 135, 178, 0.65);
 }
 
 .example-balances-container {
@@ -28,11 +34,15 @@ h3 {
     background-color: white;
     padding: 20px;
     margin: 10px;
+    color: #fff;
+    background: #ad5389;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .balance-title {
     font-size: 1.4em;
-
 }
 
 .balance-text {
@@ -43,4 +53,6 @@ h3 {
 .example-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 700px;
 }
