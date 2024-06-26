@@ -2,8 +2,10 @@ import React from "react";
 import './styles.css';
 import DailyAssetSnack from "../DailyAssetSnack/DailyAssetSnack";
 
-const tickers = ['aapl', 'ibm', 'nvda', 'msft']
-const Dashboard= () => {
+interface DashboardProps {
+    tickers: string[]
+}
+const Dashboard= ({tickers}: DashboardProps) => {
     return(<div className={"dashboard"}>
         <h1>Dashboard</h1>
         <div className={"cards-container"}>
