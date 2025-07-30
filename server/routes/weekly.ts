@@ -1,0 +1,37 @@
+import express, { Request, Response } from "express";
+
+const weeklyStatsRouter = express.Router();
+
+const handleDates = () => {
+  const todaysDate = new Date();
+  const lastWeeksDate = new Date();
+  lastWeeksDate.setDate(lastWeeksDate.getDate() - 7);
+  const formattedLastWeek = lastWeeksDate.toISOString().split("T")[0];
+  const formattedToday = todaysDate.toISOString().split("T")[0];
+  return { lastWeek: formattedLastWeek, today: formattedToday };
+};
+
+weeklyStatsRouter.get(
+  "/api/weekly/stock/:stockTicker",
+  async (req: Request, res: Response): Promise<void> => {
+    const { stockTicker } = req.params;
+    const { lastWeek, today } = handleDates();
+    //TODO handle in query
+    const timespan = "day";
+    try {
+      const response = await fetch(
+        `${process.env.POLYGON_URL}/v2/aggs/ticker/${stockTicker}/range/1/${timespan}/${lastWeek}/${today}?adjusted=true&sort=asc&apiKey=${process.env.POLYGON_API_KEY}`,
+      );
+      console.log("hit the endpoint WEEKLY");
+      const results = await response.json();
+      console.log(results);
+      // res.send(await response.json());
+      return;
+    } catch (e: any) {
+      console.error(e);
+      throw new Error("Could not get daily stock information", e);
+    }
+  },
+);
+
+export default weeklyStatsRouter;
