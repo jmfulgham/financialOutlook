@@ -3,16 +3,12 @@
     "outDir": "./dist",
     "module": "node16",
     "target": "es2021",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions" : true,
+    "allowImportingTsExtensions": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
@@ -20,10 +16,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "react-jsx"
   },
   "ts-node": {
     "esm": true
   },
-  "include": ["/**/*.ts"],
+  "include": ["/**/*.ts", "next-env.d.ts", "app/**/*", "src/**/*"]
 }
