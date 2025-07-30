@@ -20,3 +20,12 @@ interface StockStats {
   "4. close": string;
   "5. volume": string;
 }
+
+export interface DailyCloseDetails {
+  symbol: string;
+  close: number;
+  error?: unknown;
+  from: string;
+  open: number;
+  afterHours: number;
+}

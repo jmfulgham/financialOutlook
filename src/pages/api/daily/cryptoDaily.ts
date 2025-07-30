@@ -1,15 +1,18 @@
-import express, { Request, Response, Router } from "express";
-import "isomorphic-fetch";
 import dotenv from "dotenv";
 dotenv.config();
 
-const dailyCryptoRouter: Router = express.Router();
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-dailyCryptoRouter.get(
-  "/api/daily/crypto/:cryptoTicker",
-  async (req: Request, res: Response): Promise<void> => {
+type ResponseData = {
+    message: string
+}
+
+export default async function handler(
+    req: NextApiRequest,
+    res: NextApiResponse<ResponseData>
+) {
     try {
-      const { cryptoTicker } = req.params;
+      const { cryptoTicker } = req.query;
       const response = await fetch(
         `${process.env.ALPHA_VANTAGE_URL}DIGITAL_CURRENCY_DAILY&symbol=${cryptoTicker}&market=USD&apikey=${process.env.ALPHA_VANTAGE_API_KEY}`,
       );
@@ -18,7 +21,5 @@ dailyCryptoRouter.get(
       console.log(e);
       throw new Error("Error retrieving crypto information ", e);
     }
-  },
-);
+  }
 
-export default dailyCryptoRouter;

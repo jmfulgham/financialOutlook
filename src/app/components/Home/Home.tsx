@@ -7,7 +7,7 @@ const Home = () => {
     console.log("CLICK!");
   };
 
-  const testTickers: string[] = ["spy", "t", "msft", "v"];
+  const testTickers: string[] = ["spy", "v"];
 
   return (
     <div className={"home-container"}>
@@ -35,7 +35,9 @@ const Home = () => {
       </div>
       <div className={"example-container"}>
         {testTickers.map((ticker) => (
-          <DailyAssetSnack ticker={ticker} />
+          <div key={ticker}>
+              <DailyAssetSnack ticker={ticker} />
+          </div>
         ))}
         {/*TODO add test graph here, do i want the snacks to hover and be clickable to
         populate the graph??

@@ -1,9 +1,8 @@
 import React, { useEffect, useState, memo } from "react";
 import "./styles.css";
 import {
-  DailyCloseDetails,
-  useGetDailyStockCloseInfo,
-} from "../../utils/dailies";
+  DailyCloseDetails
+} from "../../types/types";
 import { FaLongArrowAltUp } from "@react-icons/all-files/fa/FaLongArrowAltUp";
 import { FaLongArrowAltDown } from "@react-icons/all-files/fa/FaLongArrowAltDown";
 
@@ -19,12 +18,14 @@ const DailyAssetSnack = memo(({ ticker }: DailyAssetCardProps) => {
   useEffect(() => {
     const fetchData = async () => {
       setError(false);
-      const dailyClose = await useGetDailyStockCloseInfo(ticker);
-      if (dailyClose.error) {
+      const dailyClose = await fetch(`/api/daily/stockDaily?stockTicker=${ticker.toUpperCase()}`);
+      const data = await dailyClose.json()
+      console.log({data})
+      if (!dailyClose.ok) {
         setError(true);
         return;
       }
-      setStockData(dailyClose);
+      setStockData(data);
     };
     fetchData();
   }, [ticker]);

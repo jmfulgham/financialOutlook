@@ -11,7 +11,9 @@ const Dashboard = ({ tickers }: DashboardProps) => {
       <h1>Dashboard</h1>
       <div className={"cards-container"}>
         {tickers.map((ticker, i) => (
+            <div key={i}>
           <DailyAssetSnack ticker={ticker} key={i} />
+            </div>
         ))}
       </div>
     </div>

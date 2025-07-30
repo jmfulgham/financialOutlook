@@ -1,7 +1,10 @@
-import express, { Request, Response } from "express";
+import type { NextApiRequest, NextApiResponse } from 'next'
+import dotenv from "dotenv";
+dotenv.config();
 
-const weeklyStatsRouter = express.Router();
-
+type ResponseData = {
+    message: string
+}
 const handleDates = () => {
   const todaysDate = new Date();
   const lastWeeksDate = new Date();
@@ -11,10 +14,11 @@ const handleDates = () => {
   return { lastWeek: formattedLastWeek, today: formattedToday };
 };
 
-weeklyStatsRouter.get(
-  "/api/weekly/stock/:stockTicker",
-  async (req: Request, res: Response): Promise<void> => {
-    const { stockTicker } = req.params;
+export default async function handler(
+    req: NextApiRequest,
+    res: NextApiResponse<ResponseData>
+) {
+    const { stockTicker } = req.query;
     const { lastWeek, today } = handleDates();
     //TODO handle in query
     const timespan = "day";
@@ -24,14 +28,11 @@ weeklyStatsRouter.get(
       );
       console.log("hit the endpoint WEEKLY");
       const results = await response.json();
-      console.log(results);
-      // res.send(await response.json());
+      res.json(results);
       return;
     } catch (e: any) {
       console.error(e);
       throw new Error("Could not get daily stock information", e);
     }
-  },
-);
+  }
 
-export default weeklyStatsRouter;
